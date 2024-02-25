@@ -34,6 +34,7 @@ let data = [
 */
 // DOM
 // 表單區
+const addTicketForm = document.querySelector(".addTicket-form");
 const ticketName = document.querySelector("#ticketName");
 const ticketNameMessage = document.querySelector("#ticketName-message");
 const ticketImgUrl = document.querySelector("#ticketImgUrl");
@@ -159,14 +160,14 @@ axios.get('https://raw.githubusercontent.com/hexschool/js-training/main/travelAP
     // 新增資料按鈕監聽
     addTicketbtn.addEventListener("click",() => {
       let addData = {
-        "id": data.length,
-        "name": ticketName.value,
-        "imgUrl": ticketImgUrl.value,
-        "area": ticketRegion.value,
-        "description": ticketDescription.value,
-        "group": ticketNum.value,
-        "price": ticketPrice.value,
-        "rate": ticketRate.value
+        id: data.length,
+        name: ticketName.value,
+        imgUrl: ticketImgUrl.value,
+        area: ticketRegion.value,
+        description: ticketDescription.value,
+        group: ticketNum.value,
+        price: ticketPrice.value,
+        rate: ticketRate.value
       };
       
       // 要全部都有資料才會 push Message
@@ -221,13 +222,7 @@ axios.get('https://raw.githubusercontent.com/hexschool/js-training/main/travelAP
 
       // 新增資料後更新下方資料並清空表單
       showAndChange(data);
-      ticketName.value = null;
-      ticketImgUrl.value = null;
-      ticketRegion.value = "";
-      ticketPrice.value = null;
-      ticketNum.value = null;
-      ticketRate.value = null;
-      ticketDescription.value = null;
+      addTicketForm.reset();
     });
 
     // 搜尋區篩選 
